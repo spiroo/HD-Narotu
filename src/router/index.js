@@ -13,6 +13,8 @@ Vue.use(Router);
 const getComponent = (name,component) => () => import(`@/views/${name}/${component}.vue`);
 
 const myRouter=new Router({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
