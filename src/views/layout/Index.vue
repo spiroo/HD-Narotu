@@ -24,5 +24,22 @@ export default {
     ...mapState(["isCollapse"])
   }
 };
-
 </script>
+
+<style lang="scss" scoped>
+.wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  .main-container {
+    min-height: 100%;
+    -webkit-transition: margin-left 0.28s;
+    transition: margin-left 0.28s;
+    margin-left: 180px;
+    position: relative;
+  }
+  .container_collapse {
+    margin-left: 64px;
+  }
+}
+</style>

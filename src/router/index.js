@@ -16,11 +16,11 @@ const myRouter=new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    {
-      path: '/',
-      redirect: '/home',
-      component: getComponent('login', 'index')
-    },
+    // {
+    //   path: '/',
+    //   redirect: '/home',
+    //   component: getComponent('login', 'index')
+    // },
     // {
     //   path: '/login',
     //   name: 'login',
@@ -28,8 +28,9 @@ const myRouter=new Router({
     // },
     {
       path: '/',
+      redirect: '/home',
       component: getComponent('layout', 'Index'),
-      children:[{
+      children: [{
         path: '/home',
         name: 'home',
         component: getComponent('home', 'Index'),

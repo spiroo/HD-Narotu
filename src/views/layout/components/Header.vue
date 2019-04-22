@@ -108,3 +108,105 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.head-container {
+  height: 50px;
+  line-height: 50px;
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 0 3px 0 rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid #f0f0f0;
+}
+.header-left {
+  float: left;
+}
+.header-right {
+  float: right;
+  padding-right: 50px;
+}
+.header-user-con {
+  display: flex;
+  height: 50px;
+  align-items: center;
+}
+.btn-fullscreen {
+  transform: rotate(45deg);
+  margin-right: 5px;
+  font-size: 24px;
+}
+.btn-fullscreen {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.btn-bell{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+.btn-bell-badge {
+  position: absolute;
+  right: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: #f56c6c;
+}
+.btn-bell .el-icon-bell {
+  color: #666;
+}
+.user-name {
+  margin-left: 10px;
+}
+.user-avator {
+  margin-left: 20px;
+}
+.user-avator img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.el-dropdown-link {
+  color: #fff;
+  cursor: pointer;
+}
+.el-dropdown-menu__item {
+  text-align: center;
+}
+.avatar-container {
+  height: 50px;
+  display: inline-block;
+  // position: absolute;
+  // right: 35px;
+  .avatar-wrapper {
+    cursor: pointer;
+    margin-top: 5px;
+    position: relative;
+    line-height: initial;
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+    }
+    .el-icon-caret-bottom {
+      position: absolute;
+      right: -20px;
+      top: 25px;
+      font-size: 12px;
+    }
+  }
+}
+</style>

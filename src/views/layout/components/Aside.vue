@@ -152,3 +152,26 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.aside {
+  -webkit-transition: width 0.28s;
+  transition: width 0.28s;
+  height: 100%;
+  position: fixed;
+  font-size: 0px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  overflow: hidden;
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 180px;
+    height: 100%;
+    text-align: left;
+  }
+  .el-menu--collapse {
+    height: 100%;
+  }
+}
+</style>
