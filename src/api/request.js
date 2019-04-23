@@ -22,9 +22,12 @@ axios.interceptors.request.use(
       text: "正在加载中......",
       fullscreen: true
     });
-    if (store.state.token) {
-      config.headers["Authorization"] = "Bearer " + store.state.token;
-    }
+    // if (store.state.token) {
+    //   config.headers["Authorization"] = "Bearer " + store.state.token;
+    // }
+    
+    config.headers["x-access-token"] = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiI4NDMifQ.aKZ2JzTvw1xqVEFSQ0uE3L5HIcA1Tge3QtHA4qsR1Rs';
+
     return config;
   },
   error => {
@@ -44,9 +47,9 @@ axios.interceptors.response.use(
         loading.close();
       }
       const res = response.data;
-      if (res.code === 0) {
+      if (res.code === '0') {
         resolve(res);
-      } else{
+      } else {
         reject(res);
       }
     });

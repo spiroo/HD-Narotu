@@ -13,3 +13,4 @@ Vue.use(Tooltip);
 Vue.use(DropdownMenu);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(Button);

@@ -21,11 +21,10 @@ const myRouter=new Router({
     //   redirect: '/home',
     //   component: getComponent('login', 'index')
     // },
-    // {
-    //   path: '/login',
-    //   name: 'login',
-    //   component: getComponent('login','index')
-    // },
+    {
+      path: '/role',
+      component: getComponent('role','index')
+    },
     {
       path: '/',
       redirect: '/home',

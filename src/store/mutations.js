@@ -13,7 +13,10 @@ const mutations = {
   SET_USER_LIST(state, payload) {
     console.log('payload = ', payload);
     state.userList = payload;
-  }
+  },
+  COMMIT_ROLE_LIST(state,payload) {
+    state.roleList = payload;
+  },
 };
 
 export default mutations;
