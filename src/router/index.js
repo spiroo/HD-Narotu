@@ -41,7 +41,13 @@ const myRouter = new Router({
           name: "users",
           component: getComponent("users", "Index"),
           meta: { title: "用户管理" }
-        }
+        },
+        {
+          path: "/role",
+          name: "role",
+          component: getComponent("role", "Index"),
+          meta: { title: "用户权限设置" }
+        },
       ]
     }
   ]
