@@ -11,8 +11,11 @@ const mutations = {
     state.isCollapse = bool;
   },
   SET_USER_LIST(state, payload) {
-    console.log('payload = ', payload);
+    console.log("payload = ", payload);
     state.userList = payload;
+  },
+  SET_TABLE_LIST(state, payload) {
+    statusbar.tebleData = payload;
   }
 };
 
