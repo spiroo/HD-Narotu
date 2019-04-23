@@ -1,6 +1,6 @@
 <template>
-<div class="continer">
-  <el-button>+新增</el-button>
+<div class="main">
+  <el-button class="add">+新增</el-button>
   <el-table
     :data="list"
     border
@@ -69,9 +69,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
-
-
