@@ -1,5 +1,6 @@
 
 import { fetchMemberList } from '@/api/users';
+import { fetchMemberManamentList } from '@/api/orManagement'
 
 const actions = {
   getUserList({ commit }) {
@@ -9,6 +10,10 @@ const actions = {
       vcGroupNo: '001000003'
     };
     fetchMemberList(params).then(response => {
+      console.log('response == ', response);
+      commit('SET_USER_LIST', response.result);
+    });
+    fetchMemberManamentList(params).then(response => {
       console.log('response == ', response);
       commit('SET_USER_LIST', response.result);
     });

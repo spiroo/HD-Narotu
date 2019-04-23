@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import store from '../store/index'; // 引入状态管理
+// import store from '../store/index'; // 引入状态管理
 import NProgress from 'nprogress'; // 引入进度条组件 cnpm install nprogress --save
 import 'nprogress/nprogress.css';
 
@@ -35,6 +35,11 @@ const myRouter=new Router({
         name: 'home',
         component: getComponent('home', 'Index'),
         meta: { title: '首页' }
+      }, {
+        path: '/management',
+        name: 'manament',
+        component: getComponent('orManagement', 'management'),
+        meta: { title: '组织管理' }
       }, {
         path: '/users',
         name: 'users',

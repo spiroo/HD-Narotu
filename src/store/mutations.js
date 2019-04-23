@@ -13,6 +13,10 @@ const mutations = {
   SET_USER_LIST(state, payload) {
     console.log('payload = ', payload);
     state.userList = payload;
+  },
+  SET_MANAGEMENT_LIST(state, payload) {
+    console.log('management = ', payload);
+    state.userList = payload;
   }
 };
 
