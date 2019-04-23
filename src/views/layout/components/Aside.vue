@@ -54,8 +54,8 @@ export default {
         },
         {
           icon: "el-icon-edit-outline",
-          index: "icon",
-          title: "自定义图标"
+          index: "users",
+          title: "用户管理"
         },
         {
           icon: "el-icon-edit-outline",

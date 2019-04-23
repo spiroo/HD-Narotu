@@ -7,9 +7,9 @@ import 'nprogress/nprogress.css';
 Vue.use(Router);
 
 /**
-*@parma {String} name 文件夹名称
-*@parma {String} component 视图组件名称
-*/
+ * @parma {String} name 文件夹名称
+ * @parma {String} component 视图组件名称
+ */
 const getComponent = (name,component) => () => import(`@/views/${name}/${component}.vue`);
 
 const myRouter=new Router({
@@ -35,6 +35,11 @@ const myRouter=new Router({
         name: 'home',
         component: getComponent('home', 'Index'),
         meta: { title: '首页' }
+      }, {
+        path: '/users',
+        name: 'users',
+        component: getComponent('users', 'Index'),
+        meta: { title: '用户管理' }
       }]
     }
   ]
