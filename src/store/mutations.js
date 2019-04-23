@@ -11,13 +11,19 @@ const mutations = {
     state.isCollapse = bool;
   },
   SET_USER_LIST(state, payload) {
-    console.log('payload = ', payload);
+    console.log("payload = ", payload);
     state.userList = payload;
   },
   SET_MANAGEMENT_LIST(state, payload) {
     console.log('management = ', payload);
     state.userList = payload;
-  }
+  },
+  SET_TABLE_LIST(state, payload) {
+    statusbar.tebleData = payload;
+  },
+  COMMIT_ROLE_LIST(state,payload) {
+    state.roleList = payload;
+  },
 };
 
 export default mutations;
