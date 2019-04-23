@@ -1,13 +1,11 @@
 import axios from "axios";
 import router from "@/router/index";
-import { messages } from '@/utils/common';
-import {
-  Loading
-} from "element-ui";
-import store from '../store/index'; // 引入vuex
+import { messages } from "@/utils/common";
+import { Loading } from "element-ui";
+import store from "../store/index"; // 引入 vuex
 
 axios.defaults.timeout = 60000; // 设置接口超时时间
-axios.defaults.baseURL = '/'; // 根据环境设置基础路径
+axios.defaults.baseURL = "/"; // 根据环境设置基础路径
 // axios.defaults.headers.post["Content-Type"] =
 //     "application/json;charset=UTF-8";  // 设置编码
 let loading = null; // 初始化loading
@@ -46,13 +44,13 @@ axios.interceptors.response.use(
       const res = response.data;
       if (res.code === 0) {
         resolve(res);
-      } else{
+      } else {
         reject(res);
       }
     });
   },
   error => {
-    console.log('error = ', error);
+    console.log("error = ", error);
     //请求成功后关闭加载框
     if (loading) {
       loading.close();
@@ -76,10 +74,7 @@ axios.interceptors.response.use(
         messages("error", "服务器内部错误");
         break;
       case 404:
-        messages(
-          "error",
-          "未找到远程服务器"
-        );
+        messages("error", "未找到远程服务器");
         break;
       case 401:
         messages("warning", "用户登陆过期，请重新登陆");
@@ -121,7 +116,7 @@ export function get(url, params) {
         reject(err);
       });
   });
-};
+}
 
 /*
  * post方法，对应post请求
@@ -139,4 +134,4 @@ export function post(url, params) {
         reject(err);
       });
   });
-};
+}

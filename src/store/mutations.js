@@ -11,9 +11,13 @@ const mutations = {
     state.isCollapse = bool;
   },
   SET_USER_LIST(state, payload) {
-    console.log('payload = ', payload);
+    console.log("payload = ", payload);
     state.userList = payload;
-  }
+  },
+  SET_COURSE_LIST(state, payload) {
+    console.log("payload = ", payload);
+    state.coureseList = payload;
+  },
 };
 
 export default mutations;

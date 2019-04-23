@@ -26,25 +26,25 @@
 </template>
 
 <script>
-import { fetchUserList, fetchMemberList } from '@/api/users';
-import { mapGetters } from 'vuex'
+import { fetchUserList, fetchMemberList } from "@/api/users";
+import { mapGetters } from "vuex";
 
 export default {
-  name: 'users',
+  name: "users",
   data() {
     return {
       list: []
     };
   },
   computed: {
-    ...mapGetters(['userList'])
+    ...mapGetters(["userList"])
   },
   mounted() {
     this.getUserList();
   },
   methods: {
     getUserList() {
-      this.$store.dispatch('getUserList');
+      this.$store.dispatch("getUserList");
       // const params = {
       //   status: '5',
       //   vcGroupNo: '001000003'
@@ -55,6 +55,5 @@ export default {
       // });
     }
   }
-}
+};
 </script>
-
