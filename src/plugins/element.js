@@ -26,3 +26,5 @@ Vue.use(DropdownMenu);
 Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(DatePicker);
+Vue.use(Input);
+Vue.use(Message);

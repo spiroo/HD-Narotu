@@ -16,7 +16,10 @@ const mutations = {
   },
   SET_TABLE_LIST(state, payload) {
     statusbar.tebleData = payload;
-  }
+  },
+  COMMIT_ROLE_LIST(state,payload) {
+    state.roleList = payload;
+  },
 };
 
 export default mutations;

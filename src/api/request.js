@@ -21,7 +21,7 @@ axios.interceptors.request.use(
       fullscreen: true
     });
     if (store.state.token) {
-      config.headers["Authorization"] = "Bearer " + store.state.token;
+      config.headers["x-access-token"] = store.state.token;
     }
     return config;
   },
@@ -42,7 +42,7 @@ axios.interceptors.response.use(
         loading.close();
       }
       const res = response.data;
-      if (res.code === 0) {
+      if (res.code === '0') {
         resolve(res);
       } else {
         reject(res);
