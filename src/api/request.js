@@ -1,16 +1,16 @@
 import axios from "axios";
 import router from "@/router/index";
-import messages from '@/utils/common';
+import { messages } from '@/utils/common';
 import {
-    Loading
+  Loading
 } from "element-ui";
-import store from '../store/store'; // 引入vuex
+import store from '../store/index'; // 引入vuex
 
-axios.defaults.timeout = 60000;                         //设置接口超时时间
-axios.defaults.baseURL = process.env.BASE_URL;          //根据环境设置基础路径
-axios.defaults.headers.post["Content-Type"] =
-    "application/x-www-form-urlencoded;charset=UTF-8";  //设置编码
-let loading = null;                                     //初始化loading
+axios.defaults.timeout = 60000; // 设置接口超时时间
+axios.defaults.baseURL = '/'; // 根据环境设置基础路径
+// axios.defaults.headers.post["Content-Type"] =
+//     "application/json;charset=UTF-8";  // 设置编码
+let loading = null; // 初始化loading
 
 /*
  * 请求前拦截
@@ -44,7 +44,7 @@ axios.interceptors.response.use(
         loading.close();
       }
       const res = response.data;
-      if (res.err_code === 0) {
+      if (res.code === 0) {
         resolve(res);
       } else{
         reject(res);
@@ -52,7 +52,7 @@ axios.interceptors.response.use(
     });
   },
   error => {
-    console.log(error)
+    console.log('error = ', error);
     //请求成功后关闭加载框
     if (loading) {
       loading.close();
@@ -60,7 +60,7 @@ axios.interceptors.response.use(
     //断网处理或者请求超时
     if (!error.response) {
       //请求超时
-      if (error.message.includes("timeout")) {
+      if (error.message && error.message.includes("timeout")) {
         console.log("超时了");
         messages("error", "请求超时，请检查互联网连接");
       } else {

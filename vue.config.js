@@ -10,7 +10,17 @@ module.exports = {
       .set('@', resolve('src'));
   },
   devServer: {
-    open: true  //打开浏览器窗口
+    open: true,  //打开浏览器窗口
+    proxy: {
+      '/api': {
+        target: 'http://47.105.200.231:8088', //对应自己的接口
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   },
   //定义scss全局变量
   css: {
