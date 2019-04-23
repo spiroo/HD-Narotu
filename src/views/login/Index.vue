@@ -14,6 +14,7 @@
 <script>
 import { appLogin } from '@/api/login.js';
 import { checkImg } from '@/api/login.js';
+import { dataCeshi } from '@/api/login.js';
 import { message } from '../../utils/common.js';
 import { mapGetters } from 'vuex'
 var ERROR_CODE = "1";
@@ -34,15 +35,28 @@ export default {
         "password": "123456",
         "username": "15731286750"
       };
+      const params2 = {
+        "formData": {
+        },
+        "pageData": {
+          "currentPage": 0,
+          "pageSize": 20,
+          "sortName": " ",
+          "sortOrder": " "
+        }
+      };
       appLogin(params).then(response => {
-        console.log('resonse = ', response);
         if (response.code === ERROR_CODE) {
-        }else {
+
+        } else {
           console.log("存储token："+response.data.token)
           this.$store.commit('COMMIT_TOKEN',response.data);
         }
       });
       console.log(this.userToken);
+      dataCeshi(params2).then(response => {
+        console.log('resonse = ', response);
+      });
     }
   },
   computed: {
