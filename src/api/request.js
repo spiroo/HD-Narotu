@@ -2,7 +2,11 @@ import axios from "axios";
 import router from "@/router/index";
 import { messages } from "@/utils/common";
 import { Loading } from "element-ui";
+<<<<<<< HEAD
 import store from "../store/index"; // 引入 vuex
+=======
+import store from "../store/index"; // 引入vuex
+>>>>>>> 01d66daa51779bb2d21cf693827f00de27712a90
 
 axios.defaults.timeout = 60000; // 设置接口超时时间
 axios.defaults.baseURL = "/"; // 根据环境设置基础路径
@@ -21,7 +25,7 @@ axios.interceptors.request.use(
       fullscreen: true
     });
     if (store.state.token) {
-      config.headers["Authorization"] = "Bearer " + store.state.token;
+      config.headers["x-access-token"] = store.state.token;
     }
     return config;
   },
@@ -42,7 +46,7 @@ axios.interceptors.response.use(
         loading.close();
       }
       const res = response.data;
-      if (res.code === 0) {
+      if (res.code === '0') {
         resolve(res);
       } else {
         reject(res);

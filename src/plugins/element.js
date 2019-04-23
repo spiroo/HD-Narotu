@@ -10,7 +10,10 @@ import {
   DropdownMenu,
   Table,
   TableColumn,
+<<<<<<< HEAD
   Input,
+=======
+>>>>>>> 01d66daa51779bb2d21cf693827f00de27712a90
   DatePicker
 } from "element-ui";
 
@@ -26,6 +29,12 @@ Vue.use(Tooltip);
 Vue.use(DropdownMenu);
 Vue.use(Table);
 Vue.use(TableColumn);
+<<<<<<< HEAD
 Vue.use(Input);
 Vue.use(Dropdown);
 Vue.use(DatePicker);
+=======
+Vue.use(DatePicker);
+Vue.use(Input);
+Vue.use(Message);
+>>>>>>> 01d66daa51779bb2d21cf693827f00de27712a90

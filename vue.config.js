@@ -14,6 +14,10 @@ module.exports = {
     proxy: {
       '/api': {
         target: 'http://47.105.200.231:8084/server', //对应自己的接口
+<<<<<<< HEAD
+=======
+        target: 'http://47.105.200.231:8084', 
+>>>>>>> 01d66daa51779bb2d21cf693827f00de27712a90
         changeOrigin: true,
         ws: true,
         pathRewrite: {
