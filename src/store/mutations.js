@@ -9,6 +9,10 @@ const mutations = {
   },
   IS_COLLAPSE(state, bool) {
     state.isCollapse = bool;
+  },
+  SET_USER_LIST(state, payload) {
+    console.log('payload = ', payload);
+    state.userList = payload;
   }
 };
 

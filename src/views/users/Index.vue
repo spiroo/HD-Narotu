@@ -1,6 +1,6 @@
 <template>
   <el-table
-    :data="list"
+    :data="userList[1].items"
     border
     style="width: 100%"
   >
@@ -27,6 +27,7 @@
 
 <script>
 import { fetchUserList, fetchMemberList } from '@/api/users';
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'users',
@@ -35,19 +36,23 @@ export default {
       list: []
     };
   },
+  computed: {
+    ...mapGetters(['userList'])
+  },
   mounted() {
     this.getUserList();
   },
   methods: {
     getUserList() {
-      const params = {
-        status: '5',
-        vcGroupNo: '001000003'
-      };
-      fetchMemberList(params).then(response => {
-        console.log('resonse = ', response);
-        this.list = response.result[1].items;
-      });
+      this.$store.dispatch('getUserList');
+      // const params = {
+      //   status: '5',
+      //   vcGroupNo: '001000003'
+      // };
+      // fetchMemberList(params).then(response => {
+      //   console.log('resonse = ', response);
+      //   this.list = response.result[1].items;
+      // });
     }
   }
 }
