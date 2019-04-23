@@ -1,6 +1,6 @@
 <template>
   <div class="forget-password">
-    <div><a href="">找回密码</a><a href="">返回登陆</a></div>
+    <div><a class="" href="">找回密码</a><a href="">返回登陆</a></div>
     <br/>
     <el-input class="input" v-model="tel" placeholder="请输入内容"></el-input>
     <el-input class="check-input-code-img" v-model="tel" placeholder="输入图片验证码"></el-input>
@@ -62,6 +62,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+  .fl {
+    float: left;
+  }
   .forget-password {
     margin: 0 auto;
     margin-top: 200px;
