@@ -5,9 +5,9 @@
     <el-input v-model="loginNumber.password" placeholder="请输入内容" class="password"></el-input>
     <el-input placeholder="验证码" class="check-code-inpit"></el-input>
     <el-button class="getCheckImg" type="info" plain>获取验证码</el-button>
-    <a href="http://localhost:8080/forgetPassword">忘记密码</a>
+    <a href="">忘记密码</a>
     <div class="forgetPassword"><input type="checkbox"/>记住密码</div> 
-    <el-button class="submit" type="primary" @click="_login">主要按钮</el-button>
+    <el-button class="submit" type="primary" @click="_login">登录</el-button>
   </div>
 </template>
 

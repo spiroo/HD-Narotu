@@ -177,28 +177,3 @@ export default {
   beforeCreate: init()
 }
 </script>
-
-<style lang="stylus">
-.header
-  position absolute
-  left 0px
-  top 0px
-  width 3040px
-  height 100px;
-  background inherit
-  background-color rgba(255, 255, 255, 1)
-  box-sizing border-box
-  border-width 1px
-  border-style solid
-  border-color rgba(228, 228, 228, 1)
-  border-left 0px
-  border-top 0px
-  border-right 0px
-  border-radius 0px
-  border-top-left-radius 0px
-  border-top-right-radius 0px
-  border-bottom-right-radius 0px
-  border-bottom-left-radius 0px
-  box-shadow none
-
-</style>
