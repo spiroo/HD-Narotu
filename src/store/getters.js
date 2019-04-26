@@ -8,6 +8,7 @@ const getters = {
   userToken: state => state.token,
   manegementList: state => state.manegementList,
   courseList: state => state.courseList
+  tableData: stata => stata.tableList
 };
 
 export default getters;

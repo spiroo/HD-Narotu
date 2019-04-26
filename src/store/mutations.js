@@ -24,9 +24,12 @@ const mutations = {
   },
   SET_TABLE_LIST(state, payload) {
     statusbar.tebleData = payload;
+<<<<<<< HEAD
   },
   COMMIT_ROLE_LIST(state, payload) {
     state.roleList = payload;
+=======
+>>>>>>> parent of 52fd49e... new
   }
 };
 
