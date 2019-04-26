@@ -17,13 +17,33 @@ const myRouter = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
+    // {
+    //   path: '/',
+    //   redirect: '/home',
+    //   component: getComponent('login', 'index')
+    // },
+    // {
+    //   path: '/login',
+    //   name: 'login',
+    //   component: getComponent('login','index')
+    // },
+    {
+      path: "/",
+      redirect: "/home",
+      component: getComponent("login", "index")
+    },
+    {
+      path: "/course",
+      component: getComponent("course", "indexCourse")
+    },
     {
       path: "/login",
       component: getComponent("login", "Index")
     },
+
     {
-      path: '/forgetPassword',
-      component: getComponent('forgetPassword','Index')
+      path: "/forgetPassword",
+      component: getComponent("forgetPassword", "Index")
     },
     {
       path: "/",
@@ -37,6 +57,12 @@ const myRouter = new Router({
           meta: { title: "首页" }
         },
         {
+          path: "/management",
+          name: "manament",
+          component: getComponent("orManagement", "management"),
+          meta: { title: "组织管理" }
+        },
+        {
           path: "/users",
           name: "users",
           component: getComponent("users", "Index"),
@@ -47,19 +73,44 @@ const myRouter = new Router({
           name: "role",
           component: getComponent("role", "index"),
           meta: { title: "用户权限设置" }
-        },
+        }
       ]
     }
+    // {
+    //   path: "/",
+    //   redirect: "/home",
+    //   component: getComponent("layout", "Index"),
+    //   children: [
+    //     {
+    //       path: "/home",
+    //       name: "home",
+    //       component: getComponent("home", "Index"),
+    //       meta: { title: "首页" }
+    //     },
+    //     {
+    //       path: "/users",
+    //       name: "users",
+    //       component: getComponent("users", "Index"),
+    //       meta: { title: "用户管理" }
+    //     },
+    //     {
+    //       path: "/course",
+    //       name: "course",
+    //       component: getComponent("course", "indexCourse"),
+    //       meta: { title: "课程管理" }
+    //     }
+    //   ]
+    // }
   ]
 });
 
 //判断是否存在token
 myRouter.beforeEach((to, from, next) => {
   NProgress.start();
-  // if (to.path !== '/login' && !store.state.token) {
-  //   next('/login'); // 跳转登录
-  //   NProgress.done(); // 结束Progress
-  // }
+  if (to.path !== "/login" && !store.state.token) {
+    next("/login"); // 跳转登录
+    NProgress.done(); // 结束Progress
+  }
   next();
 });
 

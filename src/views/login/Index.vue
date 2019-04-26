@@ -5,17 +5,19 @@
     <el-input v-model="loginNumber.password" placeholder="请输入内容" class="password"></el-input>
     <el-input placeholder="验证码" class="check-code-inpit"></el-input>
     <el-button class="getCheckImg" type="info" plain>获取验证码</el-button>
-    <a href="http://localhost:8080/forgetPassword">忘记密码</a>
+    <a href="">忘记密码</a>
     <div class="forgetPassword"><input type="checkbox"/>记住密码</div> 
-    <el-button class="submit" type="primary" @click="_login">主要按钮</el-button>
+    <el-button class="submit" type="primary" @click="_login">登录</el-button>
   </div>
 </template>
 
 <script>
 import { appLogin } from '@/api/login.js';
 import { checkImg } from '@/api/login.js';
+import { dataCeshi } from '@/api/login.js';
 import { message } from '../../utils/common.js';
 import { mapGetters } from 'vuex'
+import { constants } from 'crypto';
 var ERROR_CODE = "1";
 
 export default {
@@ -34,6 +36,16 @@ export default {
         "password": "123456",
         "username": "15731286750"
       };
+      const params2 = {
+        "formData": {
+        },
+        "pageData": {
+          "currentPage": 0,
+          "pageSize": 20,
+          "sortName": " ",
+          "sortOrder": " "
+        }
+      };
       appLogin(params).then(response => {
         console.log('resonse = ', response);
         if (response.code === ERROR_CODE) {
@@ -42,7 +54,11 @@ export default {
           this.$store.commit('COMMIT_TOKEN',response.data);
         }
       });
-      console.log(this.userToken);
+      console.log("token"+this.userToken);
+      dataCeshi(params2).then(response => {
+        console.log('resonse = ', response);
+      });
+      this.$router.push({ path:'/home'})
     }
   },
   computed: {
