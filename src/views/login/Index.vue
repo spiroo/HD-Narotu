@@ -17,6 +17,7 @@ import { checkImg } from '@/api/login.js';
 import { dataCeshi } from '@/api/login.js';
 import { message } from '../../utils/common.js';
 import { mapGetters } from 'vuex'
+import { constants } from 'crypto';
 var ERROR_CODE = "1";
 
 export default {
@@ -46,17 +47,18 @@ export default {
         }
       };
       appLogin(params).then(response => {
+        console.log('resonse = ', response);
         if (response.code === ERROR_CODE) {
-
-        } else {
+        }else {
           console.log("存储token："+response.data.token)
           this.$store.commit('COMMIT_TOKEN',response.data);
         }
       });
-      console.log(this.userToken);
+      console.log("token"+this.userToken);
       dataCeshi(params2).then(response => {
         console.log('resonse = ', response);
       });
+      this.$router.push({ path:'/home'})
     }
   },
   computed: {

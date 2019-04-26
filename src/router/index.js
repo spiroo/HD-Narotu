@@ -1,13 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
-<<<<<<< HEAD
 import store from "../store/index"; // 引入状态管理
 import NProgress from "nprogress"; // 引入进度条组件 cnpm install nprogress --save
-=======
-import store from '../store/index'; // 引入状态管理
-import NProgress from 'nprogress'; // 引入进度条组件 cnpm install nprogress --save
->>>>>>> parent of 52fd49e... new
-import 'nprogress/nprogress.css';
+import "nprogress/nprogress.css";
 
 Vue.use(Router);
 
@@ -15,10 +10,11 @@ Vue.use(Router);
  * @parma {String} name 文件夹名称
  * @parma {String} component 视图组件名称
  */
-const getComponent = (name,component) => () => import(`@/views/${name}/${component}.vue`);
+const getComponent = (name, component) => () =>
+  import(`@/views/${name}/${component}.vue`);
 
-const myRouter=new Router({
-  mode: 'history',
+const myRouter = new Router({
+  mode: "history",
   base: process.env.BASE_URL,
   routes: [
     // {
@@ -32,7 +28,6 @@ const myRouter=new Router({
     //   component: getComponent('login','index')
     // },
     {
-<<<<<<< HEAD
       path: "/",
       redirect: "/home",
       component: getComponent("login", "index")
@@ -40,7 +35,6 @@ const myRouter=new Router({
     {
       path: "/course",
       component: getComponent("course", "indexCourse")
-
     },
     {
       path: "/login",
@@ -48,8 +42,8 @@ const myRouter=new Router({
     },
 
     {
-      path: '/forgetPassword',
-      component: getComponent('forgetPassword', 'Index')
+      path: "/forgetPassword",
+      component: getComponent("forgetPassword", "Index")
     },
     {
       path: "/",
@@ -63,10 +57,10 @@ const myRouter=new Router({
           meta: { title: "首页" }
         },
         {
-          path: '/management',
-          name: 'manament',
-          component: getComponent('orManagement', 'management'),
-          meta: { title: '组织管理' }
+          path: "/management",
+          name: "manament",
+          component: getComponent("orManagement", "management"),
+          meta: { title: "组织管理" }
         },
         {
           path: "/users",
@@ -79,24 +73,8 @@ const myRouter=new Router({
           name: "role",
           component: getComponent("role", "Index"),
           meta: { title: "用户权限设置" }
-        },
+        }
       ]
-=======
-      path: '/',
-      redirect: '/home',
-      component: getComponent('layout', 'Index'),
-      children: [{
-        path: '/home',
-        name: 'home',
-        component: getComponent('home', 'Index'),
-        meta: { title: '首页' }
-      }, {
-        path: '/users',
-        name: 'users',
-        component: getComponent('users', 'Index'),
-        meta: { title: '用户管理' }
-      }]
->>>>>>> parent of 52fd49e... new
     }
     // {
     //   path: "/",
@@ -127,10 +105,10 @@ const myRouter=new Router({
 });
 
 //判断是否存在token
-myRouter.beforeEach((to, from, next)=>{
+myRouter.beforeEach((to, from, next) => {
   NProgress.start();
-  if (to.path !== '/login' && !store.state.token) {
-    next('/login'); // 跳转登录
+  if (to.path !== "/login" && !store.state.token) {
+    next("/login"); // 跳转登录
     NProgress.done(); // 结束Progress
   }
   next();

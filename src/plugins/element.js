@@ -27,7 +27,4 @@ Vue.use(DropdownMenu);
 Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(DatePicker);
-<<<<<<< HEAD
 Vue.use(Input);
-=======
->>>>>>> parent of 52fd49e... new
