@@ -26,18 +26,18 @@
 </template>
 
 <script>
-import { fetchUserList, fetchMemberList } from "@/api/users";
-import { mapGetters } from "vuex";
+import {fetchMemberList } from '@/api/users';
+import { mapGetters } from 'vuex'
 
 export default {
-  name: "users",
+  name: 'users',
   data() {
     return {
       list: []
     };
   },
   computed: {
-    ...mapGetters(["userList"])
+    ...mapGetters(['userList'])
   },
   mounted() {
     this.getUserList();
@@ -55,5 +55,6 @@ export default {
       });
     }
   }
-};
+}
 </script>
+

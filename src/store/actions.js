@@ -14,8 +14,8 @@ const actions = {
     });
     fetchMemberManamentList(params).then(response => {
       console.log('response == ', response);
-      commit('SET_USER_LIST', response.result);
+      commit('SET_MANAGEMENT_LIST', response.result);
     });
-  },
-};
+  }
+}
 export default actions;

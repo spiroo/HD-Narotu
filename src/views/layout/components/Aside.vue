@@ -131,6 +131,21 @@ export default {
             }
           ]
         },
+        {
+          icon: "el-icon-edit-outline",
+          index: "orManagement",
+          title: "组织架构管理",
+          subs: [
+            {
+              index: "management",
+              title: "组织架构管理"
+            },
+            {
+              index: "listDelopy",
+              title: "列表配置"
+            }
+          ]
+        },
       ]
     };
   },
