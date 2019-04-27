@@ -40,10 +40,9 @@ const myRouter = new Router({
       path: "/login",
       component: getComponent("login", "Index")
     },
-
     {
-      path: "/forgetPassword",
-      component: getComponent("forgetPassword", "Index")
+      path: "/userinf",
+      component: getComponent("userinf", "Index")
     },
     {
       path: "/",
