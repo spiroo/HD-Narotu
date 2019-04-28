@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import {fetchMemberList } from '@/api/users';
+import { fetchMemberList } from '@/api/users';
 import { mapGetters } from 'vuex'
 
 export default {
@@ -40,7 +40,7 @@ export default {
     ...mapGetters(['userList'])
   },
   mounted() {
-    this.getUserList();
+    // this.getUserList();
   },
   methods: {
     getUserList() {
@@ -52,6 +52,7 @@ export default {
       fetchMemberList(params).then(response => {
         console.log('resonse = ', response);
         this.list = response.result[1].items;
+        console.log("gg",this.list)
       });
     }
   }

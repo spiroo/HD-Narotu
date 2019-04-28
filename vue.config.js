@@ -19,6 +19,14 @@ module.exports = {
         pathRewrite: {
           '^/api': ''
         }
+      },
+      '/test': {
+        target: 'http://jsonplaceholder.typicode.com',
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/test': ''
+        }
       }
     }
   },

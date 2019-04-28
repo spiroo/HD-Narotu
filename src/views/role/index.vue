@@ -49,7 +49,7 @@ export default {
     ...mapGetters(['roleList'])
   },
   mounted() {
-    this.getRoleList();
+    // this.getRoleList();
   },
   methods: {
     getRoleList() {

@@ -16,6 +16,7 @@ let loading = null; // 初始化loading
  */
 axios.interceptors.request.use(
   config => {
+    console.log('config');
     loading = Loading.service({
       text: "正在加载中......",
       fullscreen: true
@@ -36,17 +37,21 @@ axios.interceptors.request.use(
  */
 axios.interceptors.response.use(
   response => {
-    return new Promise((resolve, reject) => {
+    // return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
       //请求成功后关闭加载框
       if (loading) {
         loading.close();
       }
       const res = response.data;
-      if (res.code === '0') {
-        resolve(res);
-      } else {
-        reject(res);
-      }
+      resolve(res);
+      store.commit('COMMIT_DATACOUNT', response.headers['x-total-count'])
+      // if (res.code === '0') {
+      //   resolve(res);
+      // } else {
+      //   reject(res);
+      // }
+      // close.log(response)
     });
   },
   error => {
@@ -79,14 +84,14 @@ axios.interceptors.response.use(
       case 401:
         messages("warning", "用户登陆过期，请重新登陆");
         localStorage.removeItem("token");
-        setTimeout(() => {
-          router.replace({
-            path: "/login",
-            query: {
-              redirect: router.currentRoute.fullPath
-            }
-          });
-        }, 1000);
+        // setTimeout(() => {
+        //   router.replace({
+        //     path: "/login",
+        //     query: {
+        //       redirect: router.currentRoute.fullPath
+        //     }
+        //   });
+        // }, 1000);
         break;
       case 400:
         messages("error", "数据异常");

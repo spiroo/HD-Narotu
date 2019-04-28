@@ -224,7 +224,7 @@ export default {
   data: {
     tablelist: {}
   },
-  beforeCreate: init()
+  // beforeCreate: init()
 };
 </script>
 

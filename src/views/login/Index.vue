@@ -15,7 +15,6 @@
 import { appLogin } from '@/api/login.js';
 import { checkImg } from '@/api/login.js';
 import { dataCeshi } from '@/api/login.js';
-import { message } from '../../utils/common.js';
 import { mapGetters } from 'vuex'
 var ERROR_CODE = "1";
 

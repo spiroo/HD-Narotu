@@ -82,10 +82,10 @@ export default {
                   index: "treeSelect",
                   title: "下拉树"
                 }
-                // ,{
-                //   index:'treeTable',
-                //   title:'表格树',
-                // }
+                ,{
+                  index:'treeTable',
+                  title:'表格树',
+                }
               ]
             },
           ]
@@ -145,6 +145,7 @@ export default {
               title: "列表配置"
             }
           ]
+          
         },
       ]
     };

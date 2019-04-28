@@ -17,12 +17,13 @@ const myRouter = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/login",
-      component: getComponent("login", "Index")
-    },
-    {
       path: '/forgetPassword',
       component: getComponent('forgetPassword','Index')
+    },
+    {
+      path: 'myTest',
+      name: 'myTest',
+      component: getComponent('test', 'myTest')
     },
     {
       path: "/",
@@ -60,17 +61,23 @@ const myRouter = new Router({
           meta: { title: "用户权限设置" }
         },
       ]
-    }
+    },
+    {
+      path: '/huadian',
+      name: 'test',
+      component: getComponent('test', 'users'),
+      meta: { title: 'test' }
+    },
   ]
 });
 
 // 判断是否存在token
 myRouter.beforeEach((to, from, next) => {
   NProgress.start();
-  if (to.path !== '/login' && !store.state.token) {
-    next('/login'); // 跳转登录
-    NProgress.done(); // 结束Progress
-  }
+  // if (to.path !== '/login' && !store.state.token) {
+  //   next('/login'); // 跳转登录
+  //   NProgress.done(); // 结束Progress
+  // }
   next();
 });
 

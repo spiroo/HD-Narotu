@@ -5,7 +5,9 @@ const state = {
   userList: [],
   tebleData: {},
   roleList: [],
-  manegementList:[]
+  manegementList:[],
+  //数据count
+  datacount:0,
 };
 
 export default state; //导出
