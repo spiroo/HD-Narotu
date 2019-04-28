@@ -56,7 +56,6 @@ const myRouter = new Router({
         {
           path: "/role",
           name: "role",
-<<<<<<< HEAD
           component: getComponent("role", "index"),
           meta: { title: "用户权限设置" }         
         },
@@ -73,66 +72,17 @@ const myRouter = new Router({
       path:"/huadian",
       name:"test",
       component: getComponent("test", "user"),
-    },
-    // {
-    //   path: "/",
-    //   redirect: "/home",
-    //   component: getComponent("layout", "Index"),
-    //   children: [
-    //     {
-    //       path: "/home",
-    //       name: "home",
-    //       component: getComponent("home", "Index"),
-    //       meta: { title: "首页" }
-    //     },
-    //     {
-    //       path: "/users",
-    //       name: "users",
-    //       component: getComponent("users", "Index"),
-    //       meta: { title: "用户管理" }
-    //     },
-    //     {
-    //       path: "/course",
-    //       name: "course",
-    //       component: getComponent("course", "indexCourse"),
-    //       meta: { title: "课程管理" }
-    //     }
-    //   ]
-    // }
-=======
-          component: getComponent("role", "Index"),
-          meta: { title: "用户权限设置" }
-        },
-        {
-          path: "/userinf",
-          component: getComponent("userinf", "Index"),
-          meta: { title: "用户列表" }
-        },
-        {
-          path: "/userDetail/:id",
-          component: getComponent("userinf", "userDetail"),
-          meta: { title: "用户详情" }
-        }
-      ]
     }
->>>>>>> 120d68e7b464c9e3db84847e5c3631fc43d57896
   ]
 });
 
 // 判断是否存在token
 myRouter.beforeEach((to, from, next) => {
   NProgress.start();
-<<<<<<< HEAD
-  // if (to.path !== "/login" && !store.state.token) {
-  //   next("/login"); // 跳转登录
-  //   NProgress.done(); // 结束Progress
-  // }
-=======
   if (to.path !== '/login' && !store.state.token) {
     next('/login'); // 跳转登录
     NProgress.done(); // 结束Progress
   }
->>>>>>> 120d68e7b464c9e3db84847e5c3631fc43d57896
   next();
 });
 

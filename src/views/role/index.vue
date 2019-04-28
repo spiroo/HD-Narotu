@@ -1,53 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <div class="main">
-    <el-button class="add">+新增</el-button>
-    <el-table
-      :data="list"
-      border
-    >
-      <el-table-column
-        label="序号"
-        width="180">
-        <template slot-scope="scope">
-          {{ `${scope.$index + 1 }` }}
-        </template>
-      </el-table-column>
-      <el-table-column
-        prop="roleName"
-        label="角色"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop=""
-        label="是否启用">
-        启用
-      </el-table-column>
-      <el-table-column
-        prop=""
-        label="操作">
-        <template slot-scope="scope">
-          <router-link :to="`/roleDetail/${scope.row.id}`">查看权限</router-link>
-          设置
-        </template>
-      </el-table-column>
-      <el-table-column
-        prop="updateTime"
-        label="创建时间"
-        width="180">
-      </el-table-column>
-    </el-table>
-    <el-pagination
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-      :current-page="page"
-      :page-sizes="[2, 5, 10, 15]"
-      :page-size="limit"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total=" count">
-    </el-pagination>
-  </div>
-=======
 <div class="main">
   <el-button class="add">+新增</el-button>
   <el-table
@@ -81,7 +32,6 @@
   </el-table>
 </div>
  
->>>>>>> 120d68e7b464c9e3db84847e5c3631fc43d57896
 </template>
 
 <script>

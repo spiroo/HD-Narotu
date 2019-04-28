@@ -12,15 +12,12 @@ import {
   TableColumn,
   DatePicker,
   Input,
-<<<<<<< HEAD
   Tag,
   Pagination,
-=======
   Select,
   Option,
   Pagination,
   Tag
->>>>>>> 120d68e7b464c9e3db84847e5c3631fc43d57896
 } from "element-ui";
 
 import "./element-variables.scss";
@@ -37,12 +34,7 @@ Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(DatePicker);
 Vue.use(Input);
-<<<<<<< HEAD
-Vue.use(Tag);
-Vue.use(Pagination)
-=======
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(Pagination);
 Vue.use(Tag);
->>>>>>> 120d68e7b464c9e3db84847e5c3631fc43d57896

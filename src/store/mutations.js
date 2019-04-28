@@ -24,7 +24,6 @@ const mutations = {
   COMMIT_ROLE_LIST(state, payload) {
     state.roleList = payload;
   },
-<<<<<<< HEAD
   COMMIT_DETAIL_LIST(state, payload) {
     state.DetailList = payload;
   },
@@ -33,7 +32,6 @@ const mutations = {
     console.log(payload)
   },
 
-=======
   // 测试
   COMMIT_TEST_DATA(state, payload) {
     state.testData = payload;
@@ -42,7 +40,6 @@ const mutations = {
   COMMIT_DATA_COUNT(state, payload) {
     state.dataCount = parseInt(payload, 10);
   }
->>>>>>> 120d68e7b464c9e3db84847e5c3631fc43d57896
 };
 
 export default mutations;
