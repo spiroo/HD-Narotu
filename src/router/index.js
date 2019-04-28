@@ -17,8 +17,17 @@ const myRouter = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+<<<<<<< HEAD
       path: '/forgetPassword',
       component: getComponent('forgetPassword','Index')
+=======
+      path: "/login",
+      component: getComponent("login", "Index")
+    },
+    {
+      path: "/hd",
+      component: getComponent("test", "user")
+>>>>>>> 0b84b963ba9b66b84705e924c35d6205bd8fdbca
     },
     {
       path: 'myTest',
@@ -57,17 +66,31 @@ const myRouter = new Router({
         {
           path: "/role",
           name: "role",
-          component: getComponent("role", "Index"),
-          meta: { title: "用户权限设置" }
+          component: getComponent("role", "index"),
+          meta: { title: "用户权限设置" }         
         },
+        {
+          path:"/roleDetail/:id",
+          name:"roleDetail",
+          component: getComponent("role", "roleDetail"),
+        },
+       
+        
       ]
     },
     {
+<<<<<<< HEAD
       path: '/huadian',
       name: 'test',
       component: getComponent('test', 'users'),
       meta: { title: 'test' }
     },
+=======
+      path:"/huadian",
+      name:"test",
+      component: getComponent("test", "user"),
+    }
+>>>>>>> 0b84b963ba9b66b84705e924c35d6205bd8fdbca
   ]
 });
 

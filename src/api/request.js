@@ -44,6 +44,7 @@ axios.interceptors.response.use(
         loading.close();
       }
       const res = response.data;
+<<<<<<< HEAD
       resolve(res);
       store.commit('COMMIT_DATACOUNT', response.headers['x-total-count'])
       // if (res.code === '0') {
@@ -52,6 +53,18 @@ axios.interceptors.response.use(
       //   reject(res);
       // }
       // close.log(response)
+=======
+
+      // store.commit('COMMIT_TABLE_COUNT', response.headers['x-total-count']);
+    
+      // store.commit("COMMIT_DATA_COUNT", response.headers["x-total-count"]);
+      // resolve(res);
+      if (res.code === '0') {
+        resolve(res);
+      } else {
+        reject(res);
+      }
+>>>>>>> 0b84b963ba9b66b84705e924c35d6205bd8fdbca
     });
   },
   error => {
