@@ -1,9 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
-import store from "../store/index"; // 引入状态管理
+import store from "../store"
 import NProgress from "nprogress"; // 引入进度条组件 cnpm install nprogress --save
-import "nprogress/nprogress.css";
-
+import "nprogress/nprogress.css"
 Vue.use(Router);
 
 /**
@@ -17,33 +16,13 @@ const myRouter = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
-    // {
-    //   path: '/',
-    //   redirect: '/home',
-    //   component: getComponent('login', 'index')
-    // },
-    // {
-    //   path: '/login',
-    //   name: 'login',
-    //   component: getComponent('login','index')
-    // },
-    {
-      path: "/",
-      redirect: "/home",
-      component: getComponent("login", "index")
-    },
-    {
-      path: "/course",
-      component: getComponent("course", "indexCourse")
-    },
     {
       path: "/login",
       component: getComponent("login", "Index")
     },
-
     {
-      path: "/forgetPassword",
-      component: getComponent("forgetPassword", "Index")
+      path: "/hd",
+      component: getComponent("test", "user")
     },
     {
       path: "/",
@@ -57,10 +36,16 @@ const myRouter = new Router({
           meta: { title: "首页" }
         },
         {
-          path: "/management",
-          name: "manament",
-          component: getComponent("orManagement", "management"),
-          meta: { title: "组织管理" }
+          path: '/management',
+          name: 'manament',
+          component: getComponent('orManagement', 'management'),
+          meta: { title: '组织管理' }
+        },
+        {
+          path: '/listDelopy',
+          name: 'listDelopy',
+          component: getComponent('orManagement', 'listDelopy'),
+          meta: { title: '列表配置' }
         },
         {
           path: "/users",
@@ -71,6 +56,7 @@ const myRouter = new Router({
         {
           path: "/role",
           name: "role",
+<<<<<<< HEAD
           component: getComponent("role", "index"),
           meta: { title: "用户权限设置" }         
         },
@@ -113,16 +99,40 @@ const myRouter = new Router({
     //     }
     //   ]
     // }
+=======
+          component: getComponent("role", "Index"),
+          meta: { title: "用户权限设置" }
+        },
+        {
+          path: "/userinf",
+          component: getComponent("userinf", "Index"),
+          meta: { title: "用户列表" }
+        },
+        {
+          path: "/userDetail/:id",
+          component: getComponent("userinf", "userDetail"),
+          meta: { title: "用户详情" }
+        }
+      ]
+    }
+>>>>>>> 120d68e7b464c9e3db84847e5c3631fc43d57896
   ]
 });
 
-//判断是否存在token
+// 判断是否存在token
 myRouter.beforeEach((to, from, next) => {
   NProgress.start();
+<<<<<<< HEAD
   // if (to.path !== "/login" && !store.state.token) {
   //   next("/login"); // 跳转登录
   //   NProgress.done(); // 结束Progress
   // }
+=======
+  if (to.path !== '/login' && !store.state.token) {
+    next('/login'); // 跳转登录
+    NProgress.done(); // 结束Progress
+  }
+>>>>>>> 120d68e7b464c9e3db84847e5c3631fc43d57896
   next();
 });
 

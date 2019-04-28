@@ -1,4 +1,4 @@
-import { get, post } from "./request";
+import { get, post } from './request';
 
-// 获取用户列表
-export const fetchRoleList = params => post("/api/modules/registe/roleList ", params);
+//登陆
+export const fetchRoleList = (params) => post('/api/modules/registe/roleList', params);

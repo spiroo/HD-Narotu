@@ -5,9 +5,9 @@
     <el-input v-model="loginNumber.password" placeholder="请输入内容" class="password"></el-input>
     <el-input placeholder="验证码" class="check-code-inpit"></el-input>
     <el-button class="getCheckImg" type="info" plain>获取验证码</el-button>
-    <a href="">忘记密码</a>
+    <a href="http://localhost:8080/forgetPassword">忘记密码</a>
     <div class="forgetPassword"><input type="checkbox"/>记住密码</div> 
-    <el-button class="submit" type="primary" @click="_login">登录</el-button>
+    <el-button class="submit" type="primary" @click="_login">主要按钮</el-button>
   </div>
 </template>
 
@@ -15,9 +15,7 @@
 import { appLogin } from '@/api/login.js';
 import { checkImg } from '@/api/login.js';
 import { dataCeshi } from '@/api/login.js';
-import { message } from '../../utils/common.js';
 import { mapGetters } from 'vuex'
-import { constants } from 'crypto';
 var ERROR_CODE = "1";
 
 export default {
@@ -47,71 +45,64 @@ export default {
         }
       };
       appLogin(params).then(response => {
-        console.log('resonse = ', response);
         if (response.code === ERROR_CODE) {
-        }else {
+
+        } else {
           console.log("存储token："+response.data.token)
-          this.$store.commit('COMMIT_TOKEN',response.data);
+          this.$store.commit("COMMIT_TOKEN",response.data);
         }
       });
-      console.log("token"+this.userToken);
+      console.log(this.userToken);
       dataCeshi(params2).then(response => {
-        console.log('resonse = ', response);
+        console.log("resonse = ", response);
       });
-      this.$router.push({ path:'/home'})
     }
   },
   computed: {
-    ...mapGetters(['userToken']),
-    checkCode () {
-      
-    }
-  },
-}
+    ...mapGetters(["userToken"]),
+  }
+};
 </script>
 <style lang="scss" scoped>
-  .login {
-    margin: 0 auto;
-    margin-top: 200px;
-    height: 411px;
-    width: 357px;
-  }
-  .login .account-number {
-    line-height: 70px;
-    height: 70px;
-  }
-  .login .password {
-    line-height: 70px;
-    height: 70px;
-  }
-  .login .getCheckImg {
-    float: right;
-    width: 150px;
-    margin-bottom: 10px;
-  }
-  .login .check-code-inpit {
-    float: left;
-    width: 199px;
-    margin-bottom: 10px;
-  }
-  .login a {
-    float: left;
-    display: block;
-    line-height: 24px;
-    margin-top:8px;
-    color: red;
-  }
-  .login .forgetPassword {
-    display: block;
-    line-height: 24px;
-    margin-top:8px;
-    float: right;
-  }
-  .login .check-code {
-    
-  }
-  .login .submit {
-    margin-top: 12px;
-    width:100%;
-  }
+.login {
+  margin: 0 auto;
+  margin-top: 200px;
+  height: 411px;
+  width: 357px;
+}
+.login .account-number {
+  line-height: 70px;
+  height: 70px;
+}
+.login .password {
+  line-height: 70px;
+  height: 70px;
+}
+.login .getCheckImg {
+  float: right;
+  width: 150px;
+  margin-bottom: 10px;
+}
+.login .check-code-inpit {
+  float: left;
+  width: 199px;
+  margin-bottom: 10px;
+}
+.login a {
+  float: left;
+  display: block;
+  line-height: 24px;
+  margin-top: 8px;
+  color: red;
+}
+.login .forgetPassword {
+  display: block;
+  line-height: 24px;
+  margin-top: 8px;
+  float: right;
+}
+.login .submit {
+  margin-top: 12px;
+  width: 100%;
+}
 </style>

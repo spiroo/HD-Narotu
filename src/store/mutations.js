@@ -14,13 +14,9 @@ const mutations = {
     console.log("payload = ", payload);
     state.userList = payload;
   },
-  SET_COURSE_LIST(state, payload) {
-    console.log("payload = ", payload);
-    state.courseList = payload;
-  },
   SET_MANAGEMENT_LIST(state, payload) {
     console.log("management = ", payload);
-    state.userList = payload;
+    state.manegementList = payload;
   },
   SET_TABLE_LIST(state, payload) {
     statusbar.tebleData = payload;
@@ -28,6 +24,7 @@ const mutations = {
   COMMIT_ROLE_LIST(state, payload) {
     state.roleList = payload;
   },
+<<<<<<< HEAD
   COMMIT_DETAIL_LIST(state, payload) {
     state.DetailList = payload;
   },
@@ -36,6 +33,16 @@ const mutations = {
     console.log(payload)
   },
 
+=======
+  // 测试
+  COMMIT_TEST_DATA(state, payload) {
+    state.testData = payload;
+  },
+  // 保存条数
+  COMMIT_DATA_COUNT(state, payload) {
+    state.dataCount = parseInt(payload, 10);
+  }
+>>>>>>> 120d68e7b464c9e3db84847e5c3631fc43d57896
 };
 
 export default mutations;
