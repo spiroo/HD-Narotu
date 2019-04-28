@@ -15,15 +15,23 @@ const mutations = {
     state.userList = payload;
   },
   SET_MANAGEMENT_LIST(state, payload) {
-    console.log('management = ', payload);
+    console.log("management = ", payload);
     state.manegementList = payload;
   },
   SET_TABLE_LIST(state, payload) {
     statusbar.tebleData = payload;
   },
-  COMMIT_ROLE_LIST(state,payload) {
+  COMMIT_ROLE_LIST(state, payload) {
     state.roleList = payload;
   },
+  // 测试
+  COMMIT_TEST_DATA(state, payload) {
+    state.testData = payload;
+  },
+  // 保存条数
+  COMMIT_DATA_COUNT(state, payload) {
+    state.dataCount = parseInt(payload, 10);
+  }
 };
 
 export default mutations;

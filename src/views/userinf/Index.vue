@@ -10,7 +10,7 @@
       关键字：
       <el-input class="key-word"  placeholder="请输入内容"></el-input>
       支部：
-      <el-select class="ZB" v-model="ZBSelect" placeholder="请选择">
+      <el-select class="ZB" v-model="formData.ZBSelect" placeholder="请选择">
         <el-option
           v-for="item in ZBoptions"
           :key="item.value"
@@ -19,7 +19,7 @@
         </el-option>
       </el-select>
       党小组：
-      <el-select class="DXZ" v-model="DXZSelect" placeholder="请选择">
+      <el-select class="DXZ" v-model="formData.DXZSelect" placeholder="请选择">
         <el-option
           v-for="item in DXZoptions"
           :key="item.value"
@@ -28,7 +28,7 @@
         </el-option>
       </el-select>
       性别：
-      <el-select class="XB" v-model="sex" placeholder="请选择">
+      <el-select class="XB" v-model="formData.sex" placeholder="请选择">
         <el-option
           v-for="item in SEXoptions"
           :key="item.value"
@@ -44,14 +44,15 @@
       </el-input>
       
       民族：
-      <el-select class="nation" v-model="nation" placeholder="请选择">
+      <el-select class="nation" v-model="formData.nation" placeholder="请选择">
         <el-option
-          v-for="item in SEXoptions"
+          v-for="item in nationOptions"
           :key="item.value"
           :label="item.label"
           :value="item.value">
         </el-option>
       </el-select>
+      <el-button type="primary" @click="listDataChangeAndInit">查询</el-button>
       <!-- 党内职务：
       <el-select class="DNZW" v-model="value" placeholder="请选择">
         <el-option
@@ -76,7 +77,7 @@
         stripe
         style="width: 100%">
         <el-table-column
-          prop="id"
+          type="index"
           label="序号"
           width="100">
         </el-table-column>
@@ -113,11 +114,16 @@
         </el-table-column>
         <el-table-column
           prop="rank"
-          label="职级">
+          label="职级"
+          width="100">
         </el-table-column>
         <el-table-column
-          prop="partyDuties"
-          label="党内职务">
+          label = "操作"
+          width = "200">
+          <template slot-scope="scope">
+            <router-link :to="`/userDetail/${scope.row.id}`">查看</router-link>
+            修改
+          </template>
         </el-table-column>
         <el-table-column
           prop="updateTime"
@@ -127,8 +133,10 @@
       <!-- 分页 -->
       <el-pagination class="fr"
         background
+        @current-change="handleCurrentChange"
+        :current-page.sync="currentPage"
         layout="prev, pager, next"
-        :total="1000">
+        :total="totalCount">
       </el-pagination>
     </div>
   </div>
@@ -179,30 +187,72 @@ import { accountList } from '@/api/userInf.js';
           value: '女',
           label: '女'
         }],
+        nationOptions: [{
+          value: '汉族',
+          label: '汉族'
+        },
+        {
+          value: '满族',
+          label: '满族'
+        }],
         ZBSelect : {},
         sex: {},
         DXZSelect: {},
         birthday: "",
         nation:"",
-        tableData: []
+        tableData: [],
+        currentPage: 0,
+        totalCount : 0,
+        // 向服务器请求时携带的筛选参数
+        formData: {
+          sex: "",
+          nation: ""
+        }
       }
     },
     created () {
       const params = {
-        "formData": {
+        formData: {
+
         },
-        "pageData": {
-          "currentPage": 0,
-          "pageSize": 10,
-          "sortName": " ",
-          "sortOrder": " "
+        pageData: {
+          currentPage: 1,
+          pageSize: 10,
+          sortName: " ",
+          sortOrder: " "
         }
       };
       accountList(params).then(response => {
+        this.totalCount = response.data.total;
         this.tableData = response.data.list;
-        console.log("tableData"+this.tableData)
       });
-    }
+    },
+    methods: {
+      handleCurrentChange() {
+        this.listDataChangeAndInit();
+      },
+      listDataChangeAndInit () {
+        const params = {
+          pageData: {
+            currentPage: 0,
+            pageSize: 10,
+            sortName: " ",
+            sortOrder: " "
+          }
+        };
+        params.formData = this.formData;
+        params.pageData.currentPage = this.currentPage;
+        console.log("page："+this.currentPage)
+        accountList(params).then(response => {
+          this.totalCount = response.data.total;
+          this.tableData = response.data.list;
+          console.log(response);
+        });
+      },
+      toview (index) {
+        console.log("index");
+      }
+    },
   }
 </script>
 <style lang="scss" scoped>
@@ -269,6 +319,11 @@ import { accountList } from '@/api/userInf.js';
       .RDSJ {
         height: 40px;
         width:120px;
+      }
+      // 查看 ，修改，删除
+      .CZ {
+        padding: 0 10px;
+        color: blue;
       }
     }
   }

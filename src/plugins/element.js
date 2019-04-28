@@ -14,7 +14,8 @@ import {
   Input,
   Select,
   Option,
-  Pagination
+  Pagination,
+  Tag
 } from "element-ui";
 
 import "./element-variables.scss";
@@ -34,3 +35,4 @@ Vue.use(Input);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(Pagination);
+Vue.use(Tag);

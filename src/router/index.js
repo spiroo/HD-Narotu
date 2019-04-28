@@ -21,8 +21,8 @@ const myRouter = new Router({
       component: getComponent("login", "Index")
     },
     {
-      path: "/userinf",
-      component: getComponent("userinf", "Index")
+      path: "/hd",
+      component: getComponent("test", "user")
     },
     {
       path: "/",
@@ -59,6 +59,16 @@ const myRouter = new Router({
           component: getComponent("role", "Index"),
           meta: { title: "用户权限设置" }
         },
+        {
+          path: "/userinf",
+          component: getComponent("userinf", "Index"),
+          meta: { title: "用户列表" }
+        },
+        {
+          path: "/userDetail/:id",
+          component: getComponent("userinf", "userDetail"),
+          meta: { title: "用户详情" }
+        }
       ]
     }
   ]

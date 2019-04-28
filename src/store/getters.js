@@ -5,7 +5,9 @@ const getters={
   tableList: stata => stata.tableList,
   roleList: state => state.roleList,
   userToken: state => state.token,
-  manegementList: state => state.manegementList
+  manegementList: state => state.manegementList,
+  testData: state => state.testData,
+  dataCount: state => state.dataCount
 };
 
 export default getters;

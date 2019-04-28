@@ -42,11 +42,13 @@ axios.interceptors.response.use(
         loading.close();
       }
       const res = response.data;
-      if (res.code === '0') {
-        resolve(res);
-      } else {
-        reject(res);
-      }
+      store.commit("COMMIT_DATA_COUNT", response.headers["x-total-count"]);
+      resolve(res);
+      // if (res.code === '0') {
+      //   resolve(res);
+      // } else {
+      //   reject(res);
+      // }
     });
   },
   error => {

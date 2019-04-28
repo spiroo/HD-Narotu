@@ -5,7 +5,12 @@ const state = {
   userList: [],
   tebleData: {},
   roleList: [],
-  manegementList:[]
+  manegementList:[],
+  // 测试
+  testData:[],
+  // 条数
+  dataCount: 0
+
 };
 
 export default state; //导出
