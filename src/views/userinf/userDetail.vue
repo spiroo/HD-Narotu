@@ -1,8 +1,8 @@
 <template>
   <div class="detail">
     <div class="header">
-      <span>用户管理 /用户信息管理 / 用户信息详情</span>
-      <img src="" alt="头像">
+      <span class="now-route fl">用户管理 /用户信息管理 / 用户信息详情</span>
+      <img :src="detail.photo" alt="头像">
       <div class="name">{{ detail.name }}</div>
       <div class="infList">
         <span>支部</span>
@@ -28,33 +28,33 @@
         <span>入党时间</span>
         <span>{{ detail.retirementTime }}</span>
         <span>离/退休</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.retirement }}</span>
         <span>离退休时间</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.birthday}}</span>
         <span>离退休时单位名称</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.retirementName}}</span>
         <span>职务</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.duty }}</span>
         <span>联系电话</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.emergencyPhone }}</span>
         <span>紧急联系人</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.emergencyContact }}</span>
         <span>紧急联系电话</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.emergencyPhone }}</span>
         <span>现居地址</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.address }}</span>
         <span>请假次数</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.holidayTimes}}</span>
         <span>住院登记次数</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.hospitalizationTimes }}</span>
         <span>帮扶次数</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.helpTimes }}</span>
         <span>慰问</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.visitTimes }}</span>
         <span>积分</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.points }}</span>
         <span>用户密码</span>
-        <span>{{detail.idendityId}}</span>
+        <span>{{detail.password }}</span>
       </div>
     </div>
   </div>
@@ -67,7 +67,7 @@ export default {
     return {
       id: "",
       detail:{
-
+        photo:""
       }
     }
   },
@@ -86,19 +86,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .infList {
-    span {
-      margin-top:14px;
+  // 通用样式
+  .fl {
+    float: left;
+  }
+  .fr {
+    float: right;
+  }
+  .cb {
+    clear: both;
+  }
+  .header {
+    .now-route {
+      display: block;
+      margin-top: 14px;
     }
-    .key {
-      line-height: 24px;
-      height: 24px;
-      width:10%;
-    }
-    .value {
-      line-height: 24px;
-      height: 24px;
-      width:10%;
+    .infList {
+      span {
+        margin-top:14px;
+      }
+      .key {
+        line-height: 24px;
+        height: 24px;
+        width:10%;
+      }
+      .value {
+        line-height: 24px;
+        height: 24px;
+        width:10%;
+      }
     }
   }
 </style>

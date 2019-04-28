@@ -15,7 +15,6 @@
 import { appLogin } from '@/api/login.js';
 import { checkImg } from '@/api/login.js';
 import { dataCeshi } from '@/api/login.js';
-import { message } from '../../utils/common.js';
 import { mapGetters } from 'vuex'
 var ERROR_CODE = "1";
 
@@ -50,66 +49,60 @@ export default {
 
         } else {
           console.log("存储token："+response.data.token)
-          this.$store.commit('COMMIT_TOKEN',response.data);
+          this.$store.commit("COMMIT_TOKEN",response.data);
         }
       });
       console.log(this.userToken);
       dataCeshi(params2).then(response => {
-        console.log('resonse = ', response);
+        console.log("resonse = ", response);
       });
     }
   },
   computed: {
-    ...mapGetters(['userToken']),
-    checkCode () {
-      
-    }
-  },
-}
+    ...mapGetters(["userToken"]),
+  }
+};
 </script>
 <style lang="scss" scoped>
-  .login {
-    margin: 0 auto;
-    margin-top: 200px;
-    height: 411px;
-    width: 357px;
-  }
-  .login .account-number {
-    line-height: 70px;
-    height: 70px;
-  }
-  .login .password {
-    line-height: 70px;
-    height: 70px;
-  }
-  .login .getCheckImg {
-    float: right;
-    width: 150px;
-    margin-bottom: 10px;
-  }
-  .login .check-code-inpit {
-    float: left;
-    width: 199px;
-    margin-bottom: 10px;
-  }
-  .login a {
-    float: left;
-    display: block;
-    line-height: 24px;
-    margin-top:8px;
-    color: red;
-  }
-  .login .forgetPassword {
-    display: block;
-    line-height: 24px;
-    margin-top:8px;
-    float: right;
-  }
-  .login .check-code {
-    
-  }
-  .login .submit {
-    margin-top: 12px;
-    width:100%;
-  }
+.login {
+  margin: 0 auto;
+  margin-top: 200px;
+  height: 411px;
+  width: 357px;
+}
+.login .account-number {
+  line-height: 70px;
+  height: 70px;
+}
+.login .password {
+  line-height: 70px;
+  height: 70px;
+}
+.login .getCheckImg {
+  float: right;
+  width: 150px;
+  margin-bottom: 10px;
+}
+.login .check-code-inpit {
+  float: left;
+  width: 199px;
+  margin-bottom: 10px;
+}
+.login a {
+  float: left;
+  display: block;
+  line-height: 24px;
+  margin-top: 8px;
+  color: red;
+}
+.login .forgetPassword {
+  display: block;
+  line-height: 24px;
+  margin-top: 8px;
+  float: right;
+}
+.login .submit {
+  margin-top: 12px;
+  width: 100%;
+}
 </style>
