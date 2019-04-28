@@ -7,7 +7,10 @@ const getters = {
   manegementList: state => state.manegementList,
   courseList: state => state.courseList,
   // eslint-disable-next-line no-dupe-keys
-  tableList: stata => stata.tableList
+  tableList: stata => stata.tableList,
+  detailList: state => state.detailList,
+  tableCount: state => state.tableCount,
+
 };
 
 export default getters;

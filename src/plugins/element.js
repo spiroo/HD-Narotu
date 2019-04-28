@@ -11,7 +11,9 @@ import {
   Table,
   TableColumn,
   DatePicker,
-  Input
+  Input,
+  Tag,
+  Pagination,
 } from "element-ui";
 
 import "./element-variables.scss";
@@ -28,3 +30,5 @@ Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(DatePicker);
 Vue.use(Input);
+Vue.use(Tag);
+Vue.use(Pagination)

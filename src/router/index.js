@@ -72,10 +72,22 @@ const myRouter = new Router({
           path: "/role",
           name: "role",
           component: getComponent("role", "index"),
-          meta: { title: "用户权限设置" }
-        }
+          meta: { title: "用户权限设置" }         
+        },
+        {
+          path:"/roleDetail/:id",
+          name:"roleDetail",
+          component: getComponent("role", "roleDetail"),
+        },
+       
+        
       ]
-    }
+    },
+    {
+      path:"/huadian",
+      name:"test",
+      component: getComponent("test", "user"),
+    },
     // {
     //   path: "/",
     //   redirect: "/home",
@@ -107,10 +119,10 @@ const myRouter = new Router({
 //判断是否存在token
 myRouter.beforeEach((to, from, next) => {
   NProgress.start();
-  if (to.path !== "/login" && !store.state.token) {
-    next("/login"); // 跳转登录
-    NProgress.done(); // 结束Progress
-  }
+  // if (to.path !== "/login" && !store.state.token) {
+  //   next("/login"); // 跳转登录
+  //   NProgress.done(); // 结束Progress
+  // }
   next();
 });
 

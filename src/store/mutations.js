@@ -27,7 +27,15 @@ const mutations = {
   },
   COMMIT_ROLE_LIST(state, payload) {
     state.roleList = payload;
-  }
+  },
+  COMMIT_DETAIL_LIST(state, payload) {
+    state.DetailList = payload;
+  },
+  COMMIT_TABLE_COUNT(state, payload) {
+    state.tableCount = parseInt(payload);
+    console.log(payload)
+  },
+
 };
 
 export default mutations;

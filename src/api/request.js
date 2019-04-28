@@ -42,11 +42,14 @@ axios.interceptors.response.use(
         loading.close();
       }
       const res = response.data;
-      if (res.code === '0') {
-        resolve(res);
-      } else {
-        reject(res);
-      }
+      console.log(response.headers);
+      store.commit('COMMIT_TABLE_COUNT', response.headers['x-total-count']);
+      // if (res.code === '0') {'
+      //   resolve(res);
+      // } else {
+      //   reject(res);
+      // }
+      resolve(res);
     });
   },
   error => {

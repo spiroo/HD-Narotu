@@ -19,6 +19,14 @@ module.exports = {
         pathRewrite: {
           '^/api': ''
         }
+      },
+      '/test': {
+        target: 'http://jsonplaceholder.typicode.com', //对应自己的接口
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/test': ''
+        }
       }
     }
   },

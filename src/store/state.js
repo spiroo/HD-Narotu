@@ -3,7 +3,8 @@ const state = {
   tagsList: [], //打开的标签页个数,
   isCollapse: false, //侧边导航是否折叠
   userList: [],
-  tebleData: {}
+  tableCount: 0,
+
 };
 
 export default state; //导出
