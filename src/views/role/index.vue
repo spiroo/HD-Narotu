@@ -42,49 +42,30 @@ export default {
   name: 'role',
   data() {
     return {
-      list: [],
-      page: 1,
-      limit: 2,
-      count:0
+      list: []
     };
   },
   computed: {
     ...mapGetters(['roleList'])
   },
   mounted() {
-    // this.getRoleList();
+    this.getRoleList();
   },
   methods: {
-    handleSizeChange (sizeChange) {
-      this.limit = sizeChange,
-      this.getRoleList()  
-    },
-    handleCurrentChange (currentpage) {
-      this.page =currentpage;
-      this.getRoleList()
-
-    },
     getRoleList() {
       // this.$store.dispatch('getRoleList');
       const params = {
         // formData: {},
         pageData: {
-         currentPage: this.page,
-         pageSize: this.limit
+          // currentPage: 0,
+          pageSize: 20
         }
       };
       fetchRoleList(params).then(response => {
         console.log('resonse = ', response);
         this.list = response.data.list;
-        this.count = response.data.total;
-
       });
     }
   }
 }
 </script>
-
-<style>
-
-</style>
-

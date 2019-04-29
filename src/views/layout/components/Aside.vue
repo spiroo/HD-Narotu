@@ -58,17 +58,6 @@ export default {
           title: "用户管理"
         },
         {
-          icon:"el-icon-edit-outline",
-          index: "role",
-          title: "用户权限设置",
-          subs :[
-            {
-              index: "role",
-              title: "用户权限设置"
-            },
-          ]
-        },
-        {
           icon: "el-icon-edit-outline",
           index: "component",
           title: "组件",
@@ -93,10 +82,10 @@ export default {
                   index: "treeSelect",
                   title: "下拉树"
                 }
-                ,{
-                  index:'treeTable',
-                  title:'表格树',
-                }
+                // ,{
+                //   index:'treeTable',
+                //   title:'表格树',
+                // }
               ]
             },
           ]
@@ -156,7 +145,6 @@ export default {
               title: "列表配置"
             }
           ]
-          
         },
       ]
     };

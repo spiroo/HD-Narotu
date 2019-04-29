@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { listDelopy } from '@/api/listDelopy'
+// import { listDelopy } from '@/api/listDelopy'
 
 export default {
   data() {
@@ -21,18 +21,18 @@ export default {
       ]
     };
   },
-  mounted() {
-    this.getListDelopy();
-  },
+  // mounted() {
+  //   this.getListDelopy();
+  // },
   methods:{
-    getListDelopy() {
-      const params = {
+  //   getListDelopy() {
+  //     const params = {
 
-      };
-      listDelopy(params).then(response => {
-        console.log("ll"+response)
-      });
-    }
+  //     };
+  //     listDelopy(params).then(response => {
+  //       console.log("ll"+response)
+  //     });
+  //   }
   }
 };
 </script>
