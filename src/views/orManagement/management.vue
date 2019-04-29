@@ -8,15 +8,15 @@
       >添加</el-button>
     </div>
     <el-table
-      :data="tableData4"
+      :data="list"
       style="width: 100%;"
       max-height="100%"
       :header-cell-style="getRowClass"
     >
-      <el-table-column align="center" fixed prop="number" label="序号" width="100"></el-table-column>
-      <el-table-column align="center" prop="one" label="第一级" width="120"></el-table-column>
-      <el-table-column align="center" prop="tow" label="第二级" width="120"></el-table-column>
-      <el-table-column align="center" prop="three" label="第三级(党小组数)" width="150"></el-table-column>
+      <el-table-column align="center" fixed type="index" label="序号" width="100"></el-table-column>
+      <el-table-column align="center" prop="id" label="第一级" width="120"></el-table-column>
+      <el-table-column align="center" prop="organizationName" label="第二级" width="120"></el-table-column>
+      <el-table-column align="center" prop="parentId" label="第三级(党小组数)" width="150"></el-table-column>
       <el-table-column align="center" width="120">
         <template slot-scope="scope">
           <el-button
@@ -27,6 +27,15 @@
         </template>
       </el-table-column>
     </el-table>
+     <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="page"
+      :page-sizes="[5, 10, 15, 20]"
+      :page-size="upPage"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="total">
+    </el-pagination>
   </div>
 </template>
 
@@ -38,25 +47,41 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      tableData4: {}
+      list: [],
+      page: 1,
+      upPage: 3,
+      total:10,
     };
   },
   computed: {
-    ...mapGetters(["manegementList"])
+    // ...mapGetters(["manegementList"])
   },
   mounted() {
     this.getManagementList();
   },
   methods: {
+    handleSizeChange(val) {
+      this.upPage = val;
+      this.getManagementList();
+    },
+    handleCurrentChange(val) {
+      this.page = val;
+      this.getManagementList();
+    },
     getManagementList() {
-      this.$store.dispatch("getUserList");
+      // this.$store.dispatch("getUserList");
       const params = {
-        status: "5",
-        vcGroupNo: "001000003"
+        pageData:{
+          currentPage: this.page,
+          pageSize: this.upPage,
+          sortName: " ",
+          sortOrder: " "
+        }
       };
       fetchMemberManamentList(params).then(response => {
-        console.log("resonse = ", response);
-        this.tableData4 = response.data.items;
+        console.log("resonse = ", response.data.total);
+        this.list = response.data.list;
+        this.total=response.data.total;
       });
     },
     deleteRow(index, rows) {
